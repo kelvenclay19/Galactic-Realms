@@ -41,7 +41,6 @@
             cursor: pointer;
         }
 
-        /* UI Overlay Base */
         #ui-overlay {
             position: absolute;
             top: 20px;
@@ -94,7 +93,6 @@
             text-align: center;
         }
 
-        /* Boss HUD */
         #boss-hud {
             position: absolute;
             top: 90px;
@@ -137,7 +135,6 @@
             transition: width 0.3s ease;
         }
 
-        /* Modals */
         .modal-overlay {
             position: absolute;
             top: 0;
@@ -159,7 +156,6 @@
             pointer-events: none;
         }
 
-        /* Main Menu */
         .menu-title {
             font-size: 4.5rem;
             font-weight: 900;
@@ -231,7 +227,6 @@
             color: #000;
         }
 
-        /* Settings Panel */
         .settings-panel {
             background: var(--bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -273,7 +268,6 @@
             accent-color: var(--primary-glow);
         }
 
-        /* Tela de Créditos */
         #credits-overlay {
             position: absolute;
             top: 0;
@@ -316,7 +310,6 @@
             }
         }
 
-        /* ========== GALACTIC MAKER STYLES ========== */
         #maker-toolbar {
             position: absolute;
             top: 90px;
@@ -402,7 +395,6 @@
             cursor: pointer;
             font-size: 0.9rem;
         }
-        /* Ícones CSS para ferramentas */
         .icon-block {
             width: 20px;
             height: 20px;
@@ -596,7 +588,6 @@
             </div>
         </div>
 
-        <!-- MAKER TOOLBAR -->
         <div id="maker-toolbar">
             <button class="btn" id="btn-maker-play">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -622,7 +613,6 @@
             <button class="btn" id="btn-maker-clear" style="background:#552222;">Apagar Mapa</button>
         </div>
 
-        <!-- MAKER MODAL -->
         <div id="maker-modal-overlay">
             <div class="maker-modal-box" id="maker-modal-box">
                 <div class="maker-modal-icon" id="maker-modal-icon">⚠️</div>
@@ -634,11 +624,9 @@
             </div>
         </div>
 
-        <!-- MAKER STATUS MSG -->
         <div id="maker-status-msg">FASE CONCLUÍDA!</div>
         <div id="maker-camera-hint">Mova a Câmera com W A S D ou Setas | Desenhe com o Mouse</div>
 
-        <!-- BOSS HUD -->
         <div id="boss-hud">
             <div id="player-hp-display">❤️❤️❤️</div>
             <div id="boss-puzzle-ui">
@@ -648,7 +636,6 @@
             <div style="width:50px"></div>
         </div>
 
-        <!-- MENU OVERLAY -->
         <div id="menu-overlay" class="modal-overlay">
             <button class="icon-btn" id="lobby-settings-btn" title="Configurações">⚙️</button>
             <div class="menu-title" id="t-title">GALACTIC REALMS</div>
@@ -661,7 +648,6 @@
             </div>
         </div>
 
-        <!-- SETTINGS OVERLAY -->
         <div id="settings-overlay" class="modal-overlay hidden">
             <div class="settings-panel">
                 <h2 id="t-settings">Configurações</h2>
@@ -678,6 +664,13 @@
                     <label id="t-fov">Campo de Visão (FOV)</label>
                     <input type="range" id="fov-slider" min="0.5" max="1.5" step="0.1" value="1.0">
                 </div>
+                <div class="setting-group">
+                    <label id="t-accessibility">Modo de Acessibilidade Visual</label>
+                    <select id="accessibility-select">
+                        <option value="off">Desativado</option>
+                        <option value="on">Ativado</option>
+                    </select>
+                </div>
                 <div style="display:flex;gap:10px;margin-top:20px;">
                     <button class="menu-btn" style="flex:1;margin:0;padding:15px;" id="close-settings-btn"><span id="t-back">Voltar</span></button>
                     <button class="menu-btn" style="flex:1;margin:0;padding:15px;background:rgba(200,50,50,0.4);border-color:#ff5555;" id="exit-game-btn"><span id="t-exit">Sair p/ Lobby</span></button>
@@ -685,7 +678,6 @@
             </div>
         </div>
 
-        <!-- CREDITS OVERLAY -->
         <div id="credits-overlay">
             <div class="credits-text">
                 <h1 id="c-thx">Obrigado por jogar!</h1>
@@ -720,7 +712,12 @@
                 mkCancel: 'CANCELAR', mkConfirm: 'CONFIRMAR', mkOk: 'ENTENDIDO',
                 mkComplete: 'FASE CONCLUÍDA! ✨', mkDied: 'VOCÊ MORREU ☠️',
                 mkHint: 'Mova a Câmera com W A S D ou Setas | Desenhe com o Mouse',
-                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector'
+                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector',
+                accessibility: 'Modo de Acessibilidade Visual',
+                accessibilityOn: 'Ativado',
+                accessibilityOff: 'Desativado',
+                dashReady: 'DASH PRONTO',
+                djReady: 'PULO DUPLO'
             },
             'pt-PT': {
                 play: 'JOGAR', newGame: 'NOVO JOGO', continue: 'CONTINUAR', boss: 'BOSS',
@@ -740,7 +737,12 @@
                 mkCancel: 'CANCELAR', mkConfirm: 'CONFIRMAR', mkOk: 'ENTENDIDO',
                 mkComplete: 'FASE CONCLUÍDA! ✨', mkDied: 'MORRESTE ☠️',
                 mkHint: 'Move a Câmera com W A S D ou Setas | Desenha com o Mouse',
-                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector'
+                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector',
+                accessibility: 'Modo de Acessibilidade Visual',
+                accessibilityOn: 'Ativado',
+                accessibilityOff: 'Desativado',
+                dashReady: 'DASH PRONTO',
+                djReady: 'SALTO DUPLO'
             },
             'es': {
                 play: 'JUGAR', newGame: 'NUEVA PARTIDA', continue: 'CONTINUAR', boss: 'JEFE',
@@ -760,7 +762,12 @@
                 mkCancel: 'CANCELAR', mkConfirm: 'CONFIRMAR', mkOk: 'ENTENDIDO',
                 mkComplete: '¡NIVEL COMPLETADO! ✨', mkDied: 'HAS MUERTO ☠️',
                 mkHint: 'Mueve la Cámara con W A S D o Flechas | Dibuja con el Mouse',
-                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector'
+                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector',
+                accessibility: 'Modo de Accesibilidad Visual',
+                accessibilityOn: 'Activado',
+                accessibilityOff: 'Desactivado',
+                dashReady: 'DASH LISTO',
+                djReady: 'DOBLE SALTO'
             },
             'en': {
                 play: 'PLAY', newGame: 'NEW GAME', continue: 'CONTINUE', boss: 'BOSS',
@@ -780,7 +787,12 @@
                 mkCancel: 'CANCEL', mkConfirm: 'CONFIRM', mkOk: 'GOT IT',
                 mkComplete: 'LEVEL CLEARED! ✨', mkDied: 'YOU DIED ☠️',
                 mkHint: 'Move Camera with W A S D or Arrows | Draw with Mouse',
-                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector'
+                mkBiomeNebula: 'Nebula Gate', mkBiomeObsidian: 'Obsidian Void', mkBiomeToxic: 'Toxic Sector',
+                accessibility: 'Visual Accessibility Mode',
+                accessibilityOn: 'Enabled',
+                accessibilityOff: 'Disabled',
+                dashReady: 'DASH READY',
+                djReady: 'DOUBLE JUMP'
             }
         };
         let currentLang = 'pt-BR';
@@ -789,8 +801,9 @@
         // ============================================================================
         // ESTADO GLOBAL DA APLICAÇÃO
         // ============================================================================
-        let appState = 'MENU'; // 'MENU' | 'PLAYING' | 'BOSS' | 'MAKER' | 'CREDITS'
+        let appState = 'MENU';
         let userFovMultiplier = 1.0;
+        let accessibilityMode = false;
 
         // ============================================================================
         // CANVAS E CONTEXTO
@@ -811,7 +824,7 @@
         window.addEventListener('resize', resizeCanvas);
 
         // ============================================================================
-        // INPUT GLOBAL (compartilhado, mas interpretado conforme appState)
+        // INPUT GLOBAL
         // ============================================================================
         const Input = {
             left: false,
@@ -824,8 +837,8 @@
 
         window.addEventListener('keydown', e => {
             const k = e.key.toLowerCase();
-            if (['arrowleft', 'arrowright', 'arrowup', 'arrowdown', ' ', 'w', 'a', 's', 'd'].includes(
-                    k)) e.preventDefault();
+            if (['arrowleft', 'arrowright', 'arrowup', 'arrowdown', ' ', 'w', 'a', 's', 'd'].includes(k)) e
+                .preventDefault();
             if (k === 'arrowleft' || k === 'a') Input.left = true;
             if (k === 'arrowright' || k === 'd') Input.right = true;
             if (k === 'arrowup' || k === 'w' || k === ' ') {
@@ -910,9 +923,9 @@
                     bgBot: '#0a0a1a',
                     starHue: 280,
                     startX: 250,
-                    platforms: [{ x: 0, y: this.GROUND_Y, w: 1500, h: 30, type: 'ground' }, { x: 1600,
-                        y: 860, w: 100, h: 18 }, { x: 1900, y: 780, w: 120, h: 18 }, { x: 2300, y: 700,
-                        w: 140, h: 18 }, { x: 2600, y: 800, w: 200, h: 18 }],
+                    platforms: [{ x: 0, y: this.GROUND_Y, w: 1500, h: 30, type: 'ground' }, { x: 1600, y: 860,
+                        w: 100, h: 18 }, { x: 1900, y: 780, w: 120, h: 18 }, { x: 2300, y: 700, w: 140,
+                        h: 18 }, { x: 2600, y: 800, w: 200, h: 18 }],
                     goalIdx: 4
                 });
                 const names = ['OBSIDIAN VOID', 'CRYSTAL CAVERNS', 'MAGMA CORE', 'COSMIC TERMINUS',
@@ -994,6 +1007,8 @@
                 ctx.stroke();
             },
             spawnParticle(x, y, vx, vy, color, life, size) {
+                if (accessibilityMode && life > 15) life = Math.floor(life * 0.4);
+                if (accessibilityMode && size > 4) size = Math.floor(size * 0.6);
                 this.particles.push({ x, y, vx, vy, color, life, maxLife: life, size });
             },
 
@@ -1063,21 +1078,23 @@
                 this.starsNear = [];
                 this.clouds = [];
                 if (idx !== this.BOSS_LEVEL_INDEX) {
-                    for (let i = 0; i < 300; i++) {
+                    let starCount = accessibilityMode ? 60 : 300;
+                    for (let i = 0; i < starCount; i++) {
                         let h = (levelData.starHue + 30 * Math.random()) % 360;
                         this.starsFar.push({ x: Math.random() * this.WORLD_WIDTH, y: Math.random() *
-                                canvasHeight * 2, size: 1.5, color: `hsl(${h}, 60%, 70%)`, b: 0.5 + Math
-                                .random() * 0.5 });
+                                canvasHeight * 2, size: accessibilityMode ? 3 : 1.5, color: `hsl(${h}, 60%, 70%)`,
+                            b: 0.5 + Math.random() * 0.5 });
                         this.starsMid.push({ x: Math.random() * this.WORLD_WIDTH, y: Math.random() *
-                                canvasHeight * 2, size: 2.5, color: `hsl(${h+20}, 70%, 80%)`, b: 0.6 + Math
-                                .random() * 0.4 });
+                                canvasHeight * 2, size: accessibilityMode ? 4.5 : 2.5, color: `hsl(${h+20}, 70%, 80%)`,
+                            b: 0.6 + Math.random() * 0.4 });
                         this.starsNear.push({ x: Math.random() * this.WORLD_WIDTH, y: Math.random() *
-                                canvasHeight * 2, size: 3.5, color: `hsl(${h+40}, 80%, 90%)`, b: 0.7 + Math
-                                .random() * 0.3 });
+                                canvasHeight * 2, size: accessibilityMode ? 6 : 3.5, color: `hsl(${h+40}, 80%, 90%)`,
+                            b: 0.7 + Math.random() * 0.3 });
                     }
-                    for (let i = 0; i < 40; i++) this.clouds.push({ x: Math.random() * this.WORLD_WIDTH, y: Math
+                    let cloudCount = accessibilityMode ? 10 : 40;
+                    for (let i = 0; i < cloudCount; i++) this.clouds.push({ x: Math.random() * this.WORLD_WIDTH, y: Math
                             .random() * (canvasHeight - 300), size: 100 + Math.random() * 200, speed: 0.2 + Math
-                            .random() * 0.5, alpha: 0.1 + Math.random() * 0.2 });
+                            .random() * 0.5, alpha: accessibilityMode ? 0.05 : 0.1 + Math.random() * 0.2 });
                 }
                 let baseZoom = (idx === this.BOSS_LEVEL_INDEX) ? 0.6 : 0.75;
                 this.camera.zoom = baseZoom * userFovMultiplier;
@@ -1098,7 +1115,7 @@
                 this.player.invulnerable = 70;
                 this.player.vy = -9;
                 this.player.vx = (this.player.x > this.boss.x) ? 12 : -12;
-                this.shake = 18;
+                this.shake = accessibilityMode ? 8 : 18;
                 let coracoes = '';
                 for (let i = 0; i < this.player.hp; i++) coracoes += '❤️';
                 if (this.gameState === 'BOSS') document.getElementById('player-hp-display').innerText = coracoes ||
@@ -1116,8 +1133,9 @@
                     this.boss.segments[rIdx].solved = true;
                     this.boss.solvedSegments++;
                     this.player.vy = -14;
-                    this.shake = 12;
-                    for (let i = 0; i < 15; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this.boss.y, (Math
+                    this.shake = accessibilityMode ? 5 : 12;
+                    let pCount = accessibilityMode ? 5 : 15;
+                    for (let i = 0; i < pCount; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this.boss.y, (Math
                         .random() * 6 - 3), -(Math.random() * 5 + 2), this.SOLVED_COLOR, 25, 8);
                     document.getElementById('boss-puzzle-bar-fill').style.width = (this.boss.solvedSegments / this
                         .boss.totalSegments * 100) + '%';
@@ -1126,7 +1144,8 @@
                         this.bossUnlocked = true;
                         try { localStorage.setItem('galactic_boss_unlocked', 'true'); } catch (e) {}
                         document.getElementById('level-message').innerText = getText('bossDefeated');
-                        for (let i = 0; i < 80; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this.boss.y +
+                        let vCount = accessibilityMode ? 20 : 80;
+                        for (let i = 0; i < vCount; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this.boss.y +
                             this.boss.h / 2, (Math.random() * 20 - 10), (Math.random() * 20 - 10), this
                             .SOLVED_COLOR, 50, Math.random() * 10 + 2);
                         setTimeout(() => triggerCredits(), 3000);
@@ -1149,10 +1168,11 @@
                     this.player.vy = 0;
                     this.player.dashCooldown = 60;
                     this.player.dashUsed = true;
-                    this.shake = 5;
+                    this.shake = accessibilityMode ? 2 : 5;
                     if (this.gameState === 'BOSS') this.player.invulnerable = Math.max(this.player.invulnerable,
-                    15);
-                    for (let i = 0; i < 10; i++) this.spawnParticle(this.player.x + this.player.w / 2, this.player.y +
+                        15);
+                    let dCount = accessibilityMode ? 3 : 10;
+                    for (let i = 0; i < dCount; i++) this.spawnParticle(this.player.x + this.player.w / 2, this.player.y +
                         this.player.h / 2, -this.player.vx * 0.2 + (Math.random() * 2 - 1), Math.random() * 4 - 2,
                         '#ffaa00', 15, 4);
                 }
@@ -1172,7 +1192,8 @@
                         this.player.grounded = false;
                         this.player.doubleJumpUsed = false; } else if (!this.player.doubleJumpUsed) { this.player
                             .vy = this.JUMP_FORCE;
-                        this.player.doubleJumpUsed = true; for (let i = 0; i < 15; i++) this.spawnParticle(this
+                        this.player.doubleJumpUsed = true; let djCount = accessibilityMode ? 4 : 15; for (let i = 0; i <
+                                djCount; i++) this.spawnParticle(this
                             .player.x + this.player.w / 2, this.player.y + this.player.h, (Math.random() * 4 -
                                 2), Math.random() * 3, '#aaccff', 15, Math.random() * 5 + 2); }
                     Input.upPressed = false;
@@ -1218,8 +1239,9 @@
                         this.levelComplete = true;
                         if (this.currentLevelIdx === this.TOTAL_NORMAL_LEVELS - 1) {
                             document.getElementById('level-message').innerText = getText('bossWaiting');
-                            this.shake = 20;
-                            for (let i = 0; i < 30; i++) this.spawnParticle(g.x + 20, g.y + 40, (Math.random() *
+                            this.shake = accessibilityMode ? 8 : 20;
+                            let gCount = accessibilityMode ? 8 : 30;
+                            for (let i = 0; i < gCount; i++) this.spawnParticle(g.x + 20, g.y + 40, (Math.random() *
                                 10 - 5), -(Math.random() * 5 + 2), '#ff0000', 30, 6);
                             this.nextLevelTimer = setTimeout(() => { this.initLevel(this.BOSS_LEVEL_INDEX);
                                 appState = 'BOSS'; }, 4000);
@@ -1247,7 +1269,8 @@
                             let dy = (this.player.y + this.player.h / 2) - (this.boss.y + this.boss.h / 2);
                             let angle = Math.atan2(dy, dx);
                             this.projectiles.push({ x: this.boss.x + this.boss.w / 2, y: this.boss.y + this.boss.h /
-                                    2, vx: Math.cos(angle) * 4.5, vy: Math.sin(angle) * 4.5, radius: 12,
+                                    2, vx: Math.cos(angle) * 4.5, vy: Math.sin(angle) * 4.5, radius: accessibilityMode ? 16 :
+                                    12,
                                 color: this.CUBE_COLORS[Math.floor(Math.random() * (this.CUBE_COLORS.length -
                                     1))] });
                         }
@@ -1269,8 +1292,9 @@
                             this.boss.vy = 0;
                             this.boss.state = 'stunned';
                             this.boss.timer = 0;
-                            this.shake = 25;
-                            for (let i = 0; i < 30; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this
+                            this.shake = accessibilityMode ? 10 : 25;
+                            let sCount = accessibilityMode ? 8 : 30;
+                            for (let i = 0; i < sCount; i++) this.spawnParticle(this.boss.x + this.boss.w / 2, this
                                 .GROUND_Y, (Math.random() * 16 - 8), -(Math.random() * 6 + 3), this.CUBE_COLORS[
                                     Math.floor(Math.random() * this.CUBE_COLORS.length)], 30, 6);
                         }
@@ -1307,7 +1331,7 @@
                 if (this.gameState === 'BOSS' && vw > limitX) { tx = -(vw - limitX) / 2; } else { tx = Math.max(0, Math
                         .min(this.player.x + this.player.w / 2 - vw / 2, limitX - vw)); }
                 let ty = Math.max(0, Math.min(this.player.y + this.player.h / 2 - vh / 2, this.WORLD_HEIGHT - vh /
-                2));
+                    2));
                 this.camera.x += (tx - this.camera.x) * 0.1;
                 this.camera.y += (ty - this.camera.y) * 0.1;
             },
@@ -1316,41 +1340,68 @@
                 const isSky = this.currentLevelIdx >= 19 && this.currentLevelIdx < 30 && this.gameState ===
                     'PLAYING';
                 const isCont = this.currentLevelIdx >= 9 && this.currentLevelIdx < 19 && this.gameState ===
-                'PLAYING';
-                if (this.gameState === 'BOSS') { ctx.fillStyle = '#08020a';
-                    ctx.fillRect(0, 0, canvasWidth, canvasHeight); } else if (isSky) {
-                    let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-                    grad.addColorStop(0, '#5f8ad0');
-                    grad.addColorStop(0.6, '#b7e0ff');
-                    grad.addColorStop(1, '#ffdfb0');
-                    ctx.fillStyle = grad;
+                    'PLAYING';
+                if (this.gameState === 'BOSS') {
+                    ctx.fillStyle = accessibilityMode ? '#000000' : '#08020a';
                     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-                    for (let c of this.clouds) { let cx = (c.x - this.camera.x * c.speed) % (this.WORLD_WIDTH + 500); if (
-                            cx < -200) cx += this.WORLD_WIDTH + 500;
-                        ctx.beginPath();
-                        ctx.arc(cx, c.y - this.camera.y * c.speed, c.size, 0, Math.PI * 2);
-                        ctx.fill(); }
+                } else if (isSky) {
+                    if (accessibilityMode) {
+                        ctx.fillStyle = '#1a2a4a';
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    } else {
+                        let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+                        grad.addColorStop(0, '#5f8ad0');
+                        grad.addColorStop(0.6, '#b7e0ff');
+                        grad.addColorStop(1, '#ffdfb0');
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    }
+                    if (!accessibilityMode) {
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                        for (let c of this.clouds) { let cx = (c.x - this.camera.x * c.speed) % (this.WORLD_WIDTH + 500); if (
+                                cx < -200) cx += this.WORLD_WIDTH + 500;
+                            ctx.beginPath();
+                            ctx.arc(cx, c.y - this.camera.y * c.speed, c.size, 0, Math.PI * 2);
+                            ctx.fill(); }
+                    }
                 } else if (isCont) {
-                    let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-                    grad.addColorStop(0, '#0b1a2a');
-                    grad.addColorStop(0.4, '#2d4b3a');
-                    grad.addColorStop(0.8, '#5a3e2b');
-                    grad.addColorStop(1, '#2d1e14');
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    if (accessibilityMode) {
+                        ctx.fillStyle = '#1a2a2a';
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    } else {
+                        let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+                        grad.addColorStop(0, '#0b1a2a');
+                        grad.addColorStop(0.4, '#2d4b3a');
+                        grad.addColorStop(0.8, '#5a3e2b');
+                        grad.addColorStop(1, '#2d1e14');
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    }
                 } else {
-                    let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-                    grad.addColorStop(0, this.levels[this.currentLevelIdx].bgTop);
-                    grad.addColorStop(1, this.levels[this.currentLevelIdx].bgBot);
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    if (accessibilityMode) {
+                        ctx.fillStyle = '#0a0a1a';
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    } else {
+                        let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+                        grad.addColorStop(0, this.levels[this.currentLevelIdx].bgTop);
+                        grad.addColorStop(1, this.levels[this.currentLevelIdx].bgBot);
+                        ctx.fillStyle = grad;
+                        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    }
                 }
-                if (this.gameState === 'PLAYING' && !isSky) {
+                if (this.gameState === 'PLAYING' && !isSky && !accessibilityMode) {
                     for (let s of this.starsFar) { let sx = (s.x - this.camera.x * 0.1) % this.WORLD_WIDTH; if (sx < 0) sx +=
                             this.WORLD_WIDTH;
                         ctx.globalAlpha = s.b * (0.7 + 0.3 * Math.sin(now * 0.002 + s.x));
                         ctx.fillStyle = s.color;
+                        ctx.fillRect(sx, s.y - this.camera.y * 0.1, s.size, s.size); }
+                    ctx.globalAlpha = 1.0;
+                }
+                if (accessibilityMode && this.gameState === 'PLAYING' && !isSky) {
+                    for (let s of this.starsFar) { let sx = (s.x - this.camera.x * 0.1) % this.WORLD_WIDTH; if (sx < 0) sx +=
+                            this.WORLD_WIDTH;
+                        ctx.globalAlpha = 0.9;
+                        ctx.fillStyle = '#ffffff';
                         ctx.fillRect(sx, s.y - this.camera.y * 0.1, s.size, s.size); }
                     ctx.globalAlpha = 1.0;
                 }
@@ -1360,7 +1411,7 @@
                 ctx.translate(sX, sY);
                 ctx.scale(this.camera.zoom, this.camera.zoom);
                 ctx.translate(-this.camera.x, -this.camera.y);
-                if (isCont) {
+                if (isCont && !accessibilityMode) {
                     ctx.globalAlpha = 0.4;
                     let rY = 500;
                     let gradient = ctx.createLinearGradient(0, rY - 100, 0, rY + 100);
@@ -1373,16 +1424,25 @@
                     ctx.globalAlpha = 1.0;
                 }
                 if (this.gameState === 'BOSS') {
-                    ctx.fillStyle = '#151515';
+                    ctx.fillStyle = accessibilityMode ? '#000000' : '#151515';
                     ctx.fillRect(-5000, this.GROUND_Y, 10000, 2000);
-                    ctx.fillStyle = '#55ff55';
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = '#55ff55';
-                    ctx.fillRect(-5000, this.GROUND_Y, 10000, 4);
+                    ctx.fillStyle = accessibilityMode ? '#ffffff' : '#55ff55';
+                    ctx.shadowBlur = accessibilityMode ? 0 : 15;
+                    ctx.shadowColor = accessibilityMode ? '#ffffff' : '#55ff55';
+                    ctx.fillRect(-5000, this.GROUND_Y, 10000, accessibilityMode ? 8 : 4);
                     ctx.shadowBlur = 0;
                 } else {
                     for (let pl of [...this.platforms, ...this.movingPlatforms]) {
-                        if (isSky) {
+                        if (accessibilityMode) {
+                            ctx.fillStyle = '#cccccc';
+                            ctx.fillRect(pl.x, pl.y, pl.w, pl.h);
+                            ctx.strokeStyle = '#000000';
+                            ctx.lineWidth = 4;
+                            ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+                            ctx.fillStyle = '#ffff00';
+                            ctx.fillRect(pl.x, pl.y, pl.w, 6);
+                            ctx.lineWidth = 1;
+                        } else if (isSky) {
                             ctx.fillStyle = '#fdfdfd';
                             ctx.shadowColor = '#ffe68f';
                             ctx.shadowBlur = 15;
@@ -1413,25 +1473,43 @@
                     }
                     ctx.shadowBlur = 0;
                     let g = this.levels[this.currentLevelIdx].goal;
-                    ctx.fillStyle = '#ccc';
-                    ctx.fillRect(g.x + 16, g.y, 4, g.h);
-                    ctx.fillStyle = '#fcd34d';
-                    ctx.beginPath();
-                    ctx.moveTo(g.x + 20, g.y + 10);
-                    ctx.lineTo(g.x + 60, g.y + 25);
-                    ctx.lineTo(g.x + 20, g.y + 40);
-                    ctx.fill();
+                    if (accessibilityMode) {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(g.x + 14, g.y, 8, g.h);
+                        ctx.strokeStyle = '#000000';
+                        ctx.lineWidth = 3;
+                        ctx.strokeRect(g.x + 14, g.y, 8, g.h);
+                        ctx.fillStyle = '#ffcc00';
+                        ctx.beginPath();
+                        ctx.moveTo(g.x + 18, g.y + 8);
+                        ctx.lineTo(g.x + 62, g.y + 25);
+                        ctx.lineTo(g.x + 18, g.y + 42);
+                        ctx.fill();
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        ctx.lineWidth = 1;
+                    } else {
+                        ctx.fillStyle = '#ccc';
+                        ctx.fillRect(g.x + 16, g.y, 4, g.h);
+                        ctx.fillStyle = '#fcd34d';
+                        ctx.beginPath();
+                        ctx.moveTo(g.x + 20, g.y + 10);
+                        ctx.lineTo(g.x + 60, g.y + 25);
+                        ctx.lineTo(g.x + 20, g.y + 40);
+                        ctx.fill();
+                    }
                     if (this.levelComplete) { ctx.fillStyle = '#fff5b0';
-                        ctx.shadowBlur = 30;
+                        ctx.shadowBlur = accessibilityMode ? 0 : 30;
                         ctx.beginPath();
                         ctx.arc(g.x + 40, g.y - 20, 30, 0, 2 * Math.PI);
                         ctx.fill();
                         ctx.shadowBlur = 0; }
                 }
                 if (this.gameState === 'BOSS') {
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = '#00ffff';
-                    ctx.fillStyle = '#ccffff';
+                    ctx.shadowBlur = accessibilityMode ? 0 : 15;
+                    ctx.shadowColor = accessibilityMode ? '#ffffff' : '#00ffff';
+                    ctx.fillStyle = accessibilityMode ? '#ffffff' : '#ccffff';
                     for (let c of this.boss.crystals) {
                         let cx = this.boss.x + this.boss.w / 2 + Math.cos(c.angle) * 110;
                         let cy = this.boss.y + this.boss.h / 2 + Math.sin(c.angle) * 40 + Math.sin(now * 0.005 + c
@@ -1443,6 +1521,12 @@
                         ctx.lineTo(cx - 8, cy);
                         ctx.closePath();
                         ctx.fill();
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                            ctx.lineWidth = 1;
+                        }
                     }
                     ctx.shadowBlur = 0;
                     if (!this.victory || (this.victory && this.boss.animTimer % 10 < 5)) {
@@ -1451,11 +1535,11 @@
                             bw = this.boss.w,
                             bh = this.boss.h,
                             d = this.boss.d;
-                        ctx.shadowBlur = (this.boss.state === 'stunned') ? 10 : 20;
+                        ctx.shadowBlur = accessibilityMode ? 0 : (this.boss.state === 'stunned' ? 10 : 20);
                         ctx.shadowColor = (this.victory) ? this.SOLVED_COLOR : (this.boss.state === 'charge' ?
                             '#ff0000' : '#aa00ff');
-                        ctx.lineWidth = 2;
-                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = accessibilityMode ? 4 : 2;
+                        ctx.strokeStyle = accessibilityMode ? '#ffffff' : '#000';
                         let stepW = bw / 3,
                             stepD = d / 3;
                         for (let r = 0; r < 3; r++) {
@@ -1493,50 +1577,108 @@
                             }
                         }
                         ctx.shadowBlur = 0;
+                        ctx.lineWidth = 1;
                     }
-                    for (let p of this.projectiles) { ctx.fillStyle = p.color;
-                        ctx.shadowBlur = 10;
-                        ctx.shadowColor = p.color;
+                    for (let p of this.projectiles) {
+                        ctx.fillStyle = accessibilityMode ? '#ffff00' : p.color;
+                        ctx.shadowBlur = accessibilityMode ? 0 : 10;
+                        ctx.shadowColor = accessibilityMode ? '#ffff00' : p.color;
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                        ctx.fill(); }
+                        ctx.fill();
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.stroke();
+                            ctx.lineWidth = 1;
+                        }
+                    }
                     ctx.shadowBlur = 0;
                 }
-                for (let p of this.particles) { ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
-                    ctx.fillStyle = p.color;
+                for (let p of this.particles) {
+                    if (accessibilityMode && p.life / p.maxLife < 0.3) continue;
+                    ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
+                    ctx.fillStyle = accessibilityMode ? '#ffff00' : p.color;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, 2 * Math.PI);
-                    ctx.fill(); }
+                    ctx.fill();
+                }
                 ctx.globalAlpha = 1.0;
                 if (!this.dead && (this.player.invulnerable === 0 || Math.floor(now / 100) % 2 === 0)) {
-                    if (this.player.dashCooldown > 45) { ctx.globalAlpha = 0.5;
+                    if (this.player.dashCooldown > 45) {
+                        ctx.globalAlpha = accessibilityMode ? 0.8 : 0.5;
                         ctx.fillStyle = '#ffaa00';
                         ctx.fillRect(this.player.x - (this.player.facingRight ? 20 : -20), this.player.y, this.player
                             .w, this.player.h);
-                        ctx.globalAlpha = 1.0; }
-                    if (!this.player.grounded && !this.player.doubleJumpUsed) { ctx.globalAlpha = 0.2;
-                        ctx.shadowBlur = 30;
-                        ctx.fillStyle = '#aaccff';
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.strokeRect(this.player.x - (this.player.facingRight ? 20 : -20), this.player.y, this
+                                .player.w, this.player.h);
+                            ctx.lineWidth = 1;
+                        }
+                        ctx.globalAlpha = 1.0;
+                    }
+                    if (!this.player.grounded && !this.player.doubleJumpUsed) {
+                        ctx.globalAlpha = accessibilityMode ? 0.5 : 0.2;
+                        ctx.shadowBlur = accessibilityMode ? 0 : 30;
+                        ctx.fillStyle = accessibilityMode ? '#ffff00' : '#aaccff';
                         ctx.fillRect(this.player.x - 8, this.player.y - 2, this.player.w + 16, this.player.h + 4);
-                        ctx.globalAlpha = 1.0; }
-                    ctx.shadowColor = '#ffd966';
-                    ctx.shadowBlur = 25;
-                    ctx.fillStyle = '#f5cb8b';
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 2;
+                            ctx.strokeRect(this.player.x - 8, this.player.y - 2, this.player.w + 16, this.player.h +
+                                4);
+                            ctx.lineWidth = 1;
+                        }
+                        ctx.globalAlpha = 1.0;
+                    }
+                    ctx.shadowColor = accessibilityMode ? '#000000' : '#ffd966';
+                    ctx.shadowBlur = accessibilityMode ? 0 : 25;
+                    ctx.fillStyle = accessibilityMode ? '#ffcc00' : '#f5cb8b';
                     ctx.fillRect(this.player.x, this.player.y, this.player.w, this.player.h);
-                    ctx.fillStyle = '#b5d8ff';
+                    if (accessibilityMode) {
+                        ctx.strokeStyle = '#000000';
+                        ctx.lineWidth = 4;
+                        ctx.strokeRect(this.player.x, this.player.y, this.player.w, this.player.h);
+                        ctx.lineWidth = 1;
+                    }
+                    ctx.fillStyle = accessibilityMode ? '#00aaff' : '#b5d8ff';
                     ctx.fillRect(this.player.x + (this.player.facingRight ? 6 : 2), this.player.y - 5, 24, 10);
-                    ctx.fillStyle = '#28241c';
-                    ctx.fillRect(this.player.x + (this.player.facingRight ? 12 : 8), this.player.y + 8, 5, 5);
-                    ctx.fillRect(this.player.x + (this.player.facingRight ? 22 : 18), this.player.y + 8, 5, 5);
-                    if (this.player.vy < -2) { ctx.fillStyle = '#ff9933';
+                    if (accessibilityMode) {
+                        ctx.strokeStyle = '#000';
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(this.player.x + (this.player.facingRight ? 6 : 2), this.player.y - 5, 24, 10);
+                        ctx.lineWidth = 1;
+                    }
+                    ctx.fillStyle = accessibilityMode ? '#ffffff' : '#28241c';
+                    ctx.fillRect(this.player.x + (this.player.facingRight ? 12 : 8), this.player.y + 8, accessibilityMode ? 7 : 5, accessibilityMode ? 7 : 5);
+                    ctx.fillRect(this.player.x + (this.player.facingRight ? 22 : 18), this.player.y + 8, accessibilityMode ? 7 : 5, accessibilityMode ? 7 : 5);
+                    if (this.player.vy < -2) {
+                        ctx.fillStyle = '#ff9933';
                         ctx.fillRect(this.player.x + this.player.w, this.player.y + 16, 12, 8);
-                        ctx.fillRect(this.player.x - 12, this.player.y + 16, 12, 8); }
+                        ctx.fillRect(this.player.x - 12, this.player.y + 16, 12, 8);
+                    }
                     ctx.shadowBlur = 0;
+                }
+                if (accessibilityMode && !this.dead && !this.levelComplete && !this.victory) {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = 'bold 16px ' + getComputedStyle(document.body).fontFamily;
+                    ctx.textAlign = 'left';
+                    let infoY = this.player.y - 30;
+                    if (this.player.dashCooldown <= 0 && !this.player.dashUsed) {
+                        ctx.fillText('⚡ ' + getText('dashReady'), this.player.x - 10, infoY);
+                        infoY -= 20;
+                    }
+                    if (!this.player.grounded && !this.player.doubleJumpUsed) {
+                        ctx.fillText('⬆ ' + getText('djReady'), this.player.x - 10, infoY);
+                    }
+                    ctx.textAlign = 'left';
                 }
                 ctx.restore();
                 if (this.gameState === 'PLAYING' && this.currentLevelIdx <= 2 && !this.levelComplete) {
                     ctx.fillStyle = `rgba(255, 255, 255, ${0.7 + 0.3 * Math.sin(now * 0.003)})`;
-                    ctx.font = 'bold 24px ' + getComputedStyle(document.body).fontFamily;
+                    ctx.font = accessibilityMode ? 'bold 32px ' + getComputedStyle(document.body).fontFamily : 'bold 24px ' + getComputedStyle(document.body).fontFamily;
                     ctx.textAlign = 'center';
                     ctx.shadowColor = '#000';
                     ctx.shadowBlur = 10;
@@ -1549,26 +1691,36 @@
                     this.deathFlashAlpha = Math.min(1, this.deathFlashAlpha);
                     ctx.fillStyle = 'black';
                     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-                    ctx.fillStyle = 'rgba(20, 0, 0, 0.5)';
-                    for (let i = 0; i < canvasHeight; i += 4) ctx.fillRect(0, i, canvasWidth, 2);
+                    if (!accessibilityMode) {
+                        ctx.fillStyle = 'rgba(20, 0, 0, 0.5)';
+                        for (let i = 0; i < canvasHeight; i += 4) ctx.fillRect(0, i, canvasWidth, 2);
+                    }
                     const text = getText('died');
-                    ctx.font = 'bold 6vw ' + getComputedStyle(document.body).getPropertyValue('--font-retro');
+                    ctx.font = accessibilityMode ? 'bold 8vw ' + getComputedStyle(document.body).getPropertyValue('--font-retro') : 'bold 6vw ' + getComputedStyle(document.body).getPropertyValue('--font-retro');
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
-                    let flicker = Math.random() > 0.1;
-                    let wobbleX = Math.sin(now * 0.05) * 3,
-                        wobbleY = Math.cos(now * 0.05) * 3;
+                    let flicker = accessibilityMode ? true : Math.random() > 0.1;
+                    let wobbleX = accessibilityMode ? 0 : Math.sin(now * 0.05) * 3,
+                        wobbleY = accessibilityMode ? 0 : Math.cos(now * 0.05) * 3;
                     let cX = canvasWidth / 2 + wobbleX,
                         cY = canvasHeight / 2 + wobbleY;
                     if (flicker) {
-                        ctx.fillStyle = 'rgba(0, 255, 255, 0.7)';
-                        ctx.fillText(text, cX - 5, cY);
-                        ctx.fillStyle = 'rgba(255, 255, 0, 0.7)';
-                        ctx.fillText(text, cX + 5, cY);
-                        ctx.fillStyle = '#ff1111';
-                        ctx.shadowColor = '#ff5555';
-                        ctx.shadowBlur = 20;
+                        if (!accessibilityMode) {
+                            ctx.fillStyle = 'rgba(0, 255, 255, 0.7)';
+                            ctx.fillText(text, cX - 5, cY);
+                            ctx.fillStyle = 'rgba(255, 255, 0, 0.7)';
+                            ctx.fillText(text, cX + 5, cY);
+                        }
+                        ctx.fillStyle = accessibilityMode ? '#ffff00' : '#ff1111';
+                        ctx.shadowColor = accessibilityMode ? '#000000' : '#ff5555';
+                        ctx.shadowBlur = accessibilityMode ? 0 : 20;
                         ctx.fillText(text, cX, cY);
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000000';
+                            ctx.lineWidth = 4;
+                            ctx.strokeText(text, cX, cY);
+                            ctx.lineWidth = 1;
+                        }
                         ctx.shadowBlur = 0;
                     } else { ctx.fillStyle = '#ee0000';
                         ctx.fillText(text, cX, cY); }
@@ -1597,7 +1749,7 @@
             AIR_RESISTANCE: 0.92,
 
             grid: [],
-            mode: 'EDIT', // 'EDIT' | 'PLAY'
+            mode: 'EDIT',
             currentTool: 1,
             isDrawing: false,
             camera: { x: 0, y: 0 },
@@ -1626,6 +1778,8 @@
             },
 
             spawnParticle(x, y, vx, vy, color, life, size) {
+                if (accessibilityMode && life > 15) life = Math.floor(life * 0.3);
+                if (accessibilityMode && size > 4) size = Math.floor(size * 0.5);
                 this.particles.push({ x, y, vx, vy, color, life, maxLife: life, size });
             },
 
@@ -1735,7 +1889,8 @@
                     this.player.vy = 0;
                     this.player.dashCooldown = 60;
                     this.player.dashUsed = true;
-                    for (let i = 0; i < 10; i++) this.spawnParticle(this.player.x + this.player.w / 2, this.player.y +
+                    let dCount = accessibilityMode ? 3 : 10;
+                    for (let i = 0; i < dCount; i++) this.spawnParticle(this.player.x + this.player.w / 2, this.player.y +
                         this.player.h / 2, -this.player.vx * 0.2 + (Math.random() * 2 - 1), Math.random() * 4 - 2,
                         '#ffaa00', 15, 4);
                 }
@@ -1756,7 +1911,8 @@
                         this.player.grounded = false;
                         this.player.doubleJumpUsed = false; } else if (!this.player.doubleJumpUsed) { this.player
                             .vy = this.JUMP_FORCE;
-                        this.player.doubleJumpUsed = true; for (let i = 0; i < 15; i++) this.spawnParticle(this
+                        this.player.doubleJumpUsed = true; let djCount = accessibilityMode ? 4 : 15; for (let i = 0; i <
+                                djCount; i++) this.spawnParticle(this
                             .player.x + this.player.w / 2, this.player.y + this.player.h, (Math.random() * 4 -
                                 2), Math.random() * 3, '#aaccff', 15, Math.random() * 5 + 2); }
                     Input.upPressed = false;
@@ -1791,7 +1947,8 @@
                         if (this.player.vy > 0 && this.player.y + this.player.h - this.player.vy <= e.y + 15) {
                             this.player.vy = this.JUMP_FORCE * 0.8;
                             e.dead = true;
-                            for (let i = 0; i < 15; i++) this.spawnParticle(e.x + e.w / 2, e.y + e.h / 2, (Math.random() *
+                            let eCount = accessibilityMode ? 4 : 15;
+                            for (let i = 0; i < eCount; i++) this.spawnParticle(e.x + e.w / 2, e.y + e.h / 2, (Math.random() *
                                 6 - 3), (Math.random() * 6 - 3), '#ff3333', 20, 4);
                         } else { this.player.dead = true; }
                     }
@@ -1816,30 +1973,38 @@
 
             draw() {
                 let b = this.BIOMES[this.currentBiome];
-                let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-                grad.addColorStop(0, b.bgTop);
-                grad.addColorStop(1, b.bgBot);
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                if (accessibilityMode) {
+                    ctx.fillStyle = '#1a1a2e';
+                    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                } else {
+                    let grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+                    grad.addColorStop(0, b.bgTop);
+                    grad.addColorStop(1, b.bgBot);
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                }
                 ctx.save();
                 ctx.translate(-this.camera.x, -this.camera.y);
                 if (this.mode === 'EDIT') {
-                    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = accessibilityMode ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.05)';
+                    ctx.lineWidth = accessibilityMode ? 2 : 1;
                     let startC = Math.floor(this.camera.x / this.TILE_SIZE),
                         endC = startC + Math.ceil(canvasWidth / this.TILE_SIZE);
                     let startR = Math.floor(this.camera.y / this.TILE_SIZE),
                         endR = startR + Math.ceil(canvasHeight / this.TILE_SIZE);
-                    for (let x = startC * this.TILE_SIZE; x <= endC * this.TILE_SIZE; x += this.TILE_SIZE) { ctx
-                    .beginPath();
+                    for (let x = startC * this.TILE_SIZE; x <= endC * this.TILE_SIZE; x += this.TILE_SIZE) {
+                        ctx.beginPath();
                         ctx.moveTo(x, this.camera.y);
                         ctx.lineTo(x, this.camera.y + canvasHeight);
-                        ctx.stroke(); }
-                    for (let y = startR * this.TILE_SIZE; y <= endR * this.TILE_SIZE; y += this.TILE_SIZE) { ctx
-                    .beginPath();
+                        ctx.stroke();
+                    }
+                    for (let y = startR * this.TILE_SIZE; y <= endR * this.TILE_SIZE; y += this.TILE_SIZE) {
+                        ctx.beginPath();
                         ctx.moveTo(this.camera.x, y);
                         ctx.lineTo(this.camera.x + canvasWidth, y);
-                        ctx.stroke(); }
+                        ctx.stroke();
+                    }
+                    ctx.lineWidth = 1;
                 }
                 let r1 = Math.max(0, Math.floor(this.camera.y / this.TILE_SIZE)),
                     r2 = Math.min(this.ROWS - 1, Math.floor((this.camera.y + canvasHeight) / this.TILE_SIZE));
@@ -1851,71 +2016,199 @@
                         if (tile === 0) continue;
                         let px = c * this.TILE_SIZE,
                             py = r * this.TILE_SIZE;
-                        if (tile === 1) { ctx.fillStyle = b.block;
-                            ctx.fillRect(px, py, this.TILE_SIZE, this.TILE_SIZE);
-                            ctx.fillStyle = b.topBlock;
-                            ctx.fillRect(px, py, this.TILE_SIZE, 8); } else if (tile === 3) { ctx.fillStyle = '#ccc';
+                        if (tile === 1) {
+                            if (accessibilityMode) {
+                                ctx.fillStyle = '#aaaaaa';
+                                ctx.fillRect(px, py, this.TILE_SIZE, this.TILE_SIZE);
+                                ctx.strokeStyle = '#000000';
+                                ctx.lineWidth = 3;
+                                ctx.strokeRect(px, py, this.TILE_SIZE, this.TILE_SIZE);
+                                ctx.fillStyle = '#ffff00';
+                                ctx.fillRect(px, py, this.TILE_SIZE, 10);
+                                ctx.lineWidth = 1;
+                            } else {
+                                ctx.fillStyle = b.block;
+                                ctx.fillRect(px, py, this.TILE_SIZE, this.TILE_SIZE);
+                                ctx.fillStyle = b.topBlock;
+                                ctx.fillRect(px, py, this.TILE_SIZE, 8);
+                            }
+                        } else if (tile === 3) {
+                            ctx.fillStyle = '#ccc';
                             ctx.fillRect(px + 18, py, 4, this.TILE_SIZE);
                             ctx.fillStyle = '#ffaa00';
                             ctx.beginPath();
                             ctx.moveTo(px + 22, py + 5);
                             ctx.lineTo(px + 40, py + 15);
                             ctx.lineTo(px + 22, py + 25);
-                            ctx.fill(); } else if (this.mode === 'EDIT') {
-                            if (tile === 2) { ctx.globalAlpha = 0.6;
-                                ctx.fillStyle = '#f5cb8b';
+                            ctx.fill();
+                            if (accessibilityMode) {
+                                ctx.strokeStyle = '#000';
+                                ctx.lineWidth = 2;
+                                ctx.stroke();
+                                ctx.lineWidth = 1;
+                            }
+                        } else if (this.mode === 'EDIT') {
+                            if (tile === 2) {
+                                ctx.globalAlpha = 0.6;
+                                ctx.fillStyle = accessibilityMode ? '#ffcc00' : '#f5cb8b';
                                 ctx.fillRect(px + (this.TILE_SIZE - this.PLAYER_W) / 2, py + (this.TILE_SIZE - this
                                     .PLAYER_H), this.PLAYER_W, this.PLAYER_H);
-                                ctx.globalAlpha = 1.0; } else if (tile === 4) { ctx.fillStyle =
-                                'rgba(255, 51, 51, 0.6)';
+                                if (accessibilityMode) {
+                                    ctx.strokeStyle = '#000';
+                                    ctx.lineWidth = 3;
+                                    ctx.strokeRect(px + (this.TILE_SIZE - this.PLAYER_W) / 2, py + (this.TILE_SIZE - this
+                                        .PLAYER_H), this.PLAYER_W, this.PLAYER_H);
+                                    ctx.lineWidth = 1;
+                                }
+                                ctx.globalAlpha = 1.0;
+                            } else if (tile === 4) {
+                                ctx.fillStyle = 'rgba(255, 51, 51, 0.6)';
                                 ctx.beginPath();
                                 ctx.roundRect(px + 4, py + this.TILE_SIZE - 28, this.TILE_SIZE - 8, 28, 6);
-                                ctx.fill(); } else if (tile === 5) { ctx.fillStyle = 'rgba(255, 0, 255, 0.6)';
-                                ctx.fillRect(px, py + this.TILE_SIZE - 12, this.TILE_SIZE, 12); } else if (tile ===
-                                6) { ctx.fillStyle = 'rgba(221, 221, 221, 0.6)';
+                                ctx.fill();
+                                if (accessibilityMode) {
+                                    ctx.strokeStyle = '#000';
+                                    ctx.lineWidth = 2;
+                                    ctx.stroke();
+                                    ctx.lineWidth = 1;
+                                }
+                            } else if (tile === 5) {
+                                ctx.fillStyle = 'rgba(255, 0, 255, 0.6)';
+                                ctx.fillRect(px, py + this.TILE_SIZE - 12, this.TILE_SIZE, 12);
+                                if (accessibilityMode) {
+                                    ctx.strokeStyle = '#000';
+                                    ctx.lineWidth = 2;
+                                    ctx.strokeRect(px, py + this.TILE_SIZE - 12, this.TILE_SIZE, 12);
+                                    ctx.lineWidth = 1;
+                                }
+                            } else if (tile === 6) {
+                                ctx.fillStyle = 'rgba(221, 221, 221, 0.6)';
                                 ctx.beginPath();
                                 ctx.moveTo(px, py + this.TILE_SIZE);
                                 ctx.lineTo(px + this.TILE_SIZE / 2, py + this.TILE_SIZE - 24);
                                 ctx.lineTo(px + this.TILE_SIZE, py + this.TILE_SIZE);
-                                ctx.fill(); }
+                                ctx.fill();
+                                if (accessibilityMode) {
+                                    ctx.strokeStyle = '#000';
+                                    ctx.lineWidth = 2;
+                                    ctx.stroke();
+                                    ctx.lineWidth = 1;
+                                }
+                            }
                         }
                     }
                 }
                 if (this.mode === 'PLAY') {
-                    for (let s of this.spikes) { ctx.fillStyle = '#ddd';
+                    for (let s of this.spikes) {
+                        ctx.fillStyle = accessibilityMode ? '#ff4444' : '#ddd';
                         ctx.beginPath();
                         ctx.moveTo(s.x, s.y + s.h);
                         ctx.lineTo(s.x + s.w / 2, s.y);
                         ctx.lineTo(s.x + s.w, s.y + s.h);
-                        ctx.fill(); }
-                    for (let pad of this.jumpPads) { ctx.fillStyle = '#ff00ff';
-                        ctx.fillRect(pad.x, pad.y, pad.w, pad.h); }
-                    for (let e of this.enemies) { ctx.fillStyle = '#ff3333';
+                        ctx.fill();
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.stroke();
+                            ctx.lineWidth = 1;
+                        }
+                    }
+                    for (let pad of this.jumpPads) {
+                        ctx.fillStyle = accessibilityMode ? '#ff88ff' : '#ff00ff';
+                        ctx.fillRect(pad.x, pad.y, pad.w, pad.h);
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.strokeRect(pad.x, pad.y, pad.w, pad.h);
+                            ctx.lineWidth = 1;
+                        }
+                    }
+                    for (let e of this.enemies) {
+                        ctx.fillStyle = accessibilityMode ? '#ff0000' : '#ff3333';
                         ctx.beginPath();
                         ctx.roundRect(e.x, e.y, e.w, e.h, 6);
                         ctx.fill();
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 3;
+                            ctx.stroke();
+                            ctx.lineWidth = 1;
+                        }
                         ctx.fillStyle = '#fff';
                         ctx.fillRect(e.x + 6, e.y + 8, 6, 6);
-                        ctx.fillRect(e.x + 20, e.y + 8, 6, 6); }
-                    for (let p of this.particles) { ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
-                        ctx.fillStyle = p.color;
+                        ctx.fillRect(e.x + 20, e.y + 8, 6, 6);
+                    }
+                    for (let p of this.particles) {
+                        if (accessibilityMode && p.life / p.maxLife < 0.3) continue;
+                        ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
+                        ctx.fillStyle = accessibilityMode ? '#ffff00' : p.color;
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.size, 0, 2 * Math.PI);
-                        ctx.fill(); }
+                        ctx.fill();
+                    }
                     ctx.globalAlpha = 1.0;
                     if (!this.player.dead) {
-                        if (this.player.dashCooldown > 45) { ctx.globalAlpha = 0.5;
+                        if (this.player.dashCooldown > 45) {
+                            ctx.globalAlpha = accessibilityMode ? 0.8 : 0.5;
                             ctx.fillStyle = '#ffaa00';
                             ctx.fillRect(this.player.x - (this.player.facingRight ? 20 : -20), this.player.y, this
                                 .player.w, this.player.h);
-                            ctx.globalAlpha = 1.0; }
-                        ctx.fillStyle = '#f5cb8b';
+                            if (accessibilityMode) {
+                                ctx.strokeStyle = '#000';
+                                ctx.lineWidth = 3;
+                                ctx.strokeRect(this.player.x - (this.player.facingRight ? 20 : -20), this.player.y,
+                                    this.player.w, this.player.h);
+                                ctx.lineWidth = 1;
+                            }
+                            ctx.globalAlpha = 1.0;
+                        }
+                        if (!this.player.grounded && !this.player.doubleJumpUsed) {
+                            ctx.globalAlpha = accessibilityMode ? 0.5 : 0.2;
+                            ctx.fillStyle = accessibilityMode ? '#ffff00' : '#aaccff';
+                            ctx.fillRect(this.player.x - 8, this.player.y - 2, this.player.w + 16, this.player.h + 4);
+                            if (accessibilityMode) {
+                                ctx.strokeStyle = '#000';
+                                ctx.lineWidth = 2;
+                                ctx.strokeRect(this.player.x - 8, this.player.y - 2, this.player.w + 16, this.player.h +
+                                    4);
+                                ctx.lineWidth = 1;
+                            }
+                            ctx.globalAlpha = 1.0;
+                        }
+                        ctx.fillStyle = accessibilityMode ? '#ffcc00' : '#f5cb8b';
                         ctx.fillRect(this.player.x, this.player.y, this.player.w, this.player.h);
-                        ctx.fillStyle = '#b5d8ff';
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000000';
+                            ctx.lineWidth = 4;
+                            ctx.strokeRect(this.player.x, this.player.y, this.player.w, this.player.h);
+                            ctx.lineWidth = 1;
+                        }
+                        ctx.fillStyle = accessibilityMode ? '#00aaff' : '#b5d8ff';
                         ctx.fillRect(this.player.x + (this.player.facingRight ? 6 : 2), this.player.y - 5, 24, 10);
-                        ctx.fillStyle = '#28241c';
-                        ctx.fillRect(this.player.x + (this.player.facingRight ? 12 : 8), this.player.y + 8, 5, 5);
-                        ctx.fillRect(this.player.x + (this.player.facingRight ? 22 : 18), this.player.y + 8, 5, 5);
+                        if (accessibilityMode) {
+                            ctx.strokeStyle = '#000';
+                            ctx.lineWidth = 2;
+                            ctx.strokeRect(this.player.x + (this.player.facingRight ? 6 : 2), this.player.y - 5, 24,
+                            10);
+                            ctx.lineWidth = 1;
+                        }
+                        ctx.fillStyle = accessibilityMode ? '#ffffff' : '#28241c';
+                        ctx.fillRect(this.player.x + (this.player.facingRight ? 12 : 8), this.player.y + 8, accessibilityMode ? 7 : 5, accessibilityMode ? 7 : 5);
+                        ctx.fillRect(this.player.x + (this.player.facingRight ? 22 : 18), this.player.y + 8, accessibilityMode ? 7 : 5, accessibilityMode ? 7 : 5);
+                    }
+                    if (accessibilityMode && !this.player.dead && !this.player.won) {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.font = 'bold 16px ' + getComputedStyle(document.body).fontFamily;
+                        ctx.textAlign = 'left';
+                        let infoY = this.player.y - 30;
+                        if (this.player.dashCooldown <= 0 && !this.player.dashUsed) {
+                            ctx.fillText('⚡ ' + getText('dashReady'), this.player.x - 10, infoY);
+                            infoY -= 20;
+                        }
+                        if (!this.player.grounded && !this.player.doubleJumpUsed) {
+                            ctx.fillText('⬆ ' + getText('djReady'), this.player.x - 10, infoY);
+                        }
+                        ctx.textAlign = 'left';
                     }
                 }
                 ctx.restore();
@@ -2011,6 +2304,9 @@
             document.getElementById('c-dev').innerText = getText('dev');
             document.getElementById('c-end').innerText = getText('end');
             document.getElementById('boss-puzzle-name').innerText = getText('bossName');
+            document.getElementById('t-accessibility').innerText = getText('accessibility');
+            document.getElementById('accessibility-select').options[0].innerText = getText('accessibilityOff');
+            document.getElementById('accessibility-select').options[1].innerText = getText('accessibilityOn');
         }
 
         function enterMakerMode() {
@@ -2171,7 +2467,15 @@
         document.getElementById('fov-slider').addEventListener('input', (e) => userFovMultiplier = parseFloat(e.target
             .value));
 
-        // MAKER CONTROLS
+        document.getElementById('accessibility-select').addEventListener('change', (e) => {
+            accessibilityMode = e.target.value === 'on';
+            try { localStorage.setItem('galactic_accessibility', accessibilityMode ? 'on' : 'off'); } catch (
+            e) {}
+            if (appState === 'PLAYING' || appState === 'BOSS') {
+                Realms.initLevel(Realms.currentLevelIdx);
+            }
+        });
+
         document.querySelectorAll('#maker-palette .tool-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('#maker-palette .tool-btn').forEach(b => b.classList.remove(
@@ -2197,6 +2501,13 @@
         // ============================================================================
         // INIT
         // ============================================================================
+        try {
+            const savedAccessibility = localStorage.getItem('galactic_accessibility');
+            if (savedAccessibility === 'on') {
+                accessibilityMode = true;
+                document.getElementById('accessibility-select').value = 'on';
+            }
+        } catch (e) {}
         Realms.init();
         Maker.initGrid();
         updateMenuUI();
