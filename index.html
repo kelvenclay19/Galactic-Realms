@@ -727,7 +727,7 @@
     <div id="game-container">
         <canvas id="gameCanvas"></canvas>
 
-        <!-- Intro overlay (mostrada apenas na primeira vez) -->
+        <!-- Intro overlay (sempre exibida ao abrir) -->
         <div id="intro-overlay">
             <div class="intro-container">
                 <div class="intro-space-bg"></div>
@@ -2749,31 +2749,18 @@
         requestAnimationFrame(mainLoop);
 
         // ============================================================================
-        // CONTROLE DA INTRO (PRIMEIRA VEZ APENAS)
+        // CONTROLE DA INTRO (SEMPRE EXIBIDA)
         // ============================================================================
         (function handleIntro() {
             const introOverlay = document.getElementById('intro-overlay');
-            let introSeen = false;
-            try {
-                introSeen = localStorage.getItem('galactic_intro_seen') === 'true';
-            } catch (e) {}
-
-            if (introSeen) {
-                // Se já viu a intro, esconde imediatamente
+            // Esconde o menu enquanto a intro estiver visível
+            document.getElementById('menu-overlay').classList.add('hidden');
+            // Após 2 segundos (duração da animação), remove a intro e mostra o menu
+            setTimeout(() => {
                 introOverlay.style.display = 'none';
-            } else {
-                // Mostra a intro e esconde o menu principal temporariamente
-                document.getElementById('menu-overlay').classList.add('hidden');
-                // Após 2 segundos (duração da animação), remove a intro e mostra o menu
-                setTimeout(() => {
-                    introOverlay.style.display = 'none';
-                    document.getElementById('menu-overlay').classList.remove('hidden');
-                    try {
-                        localStorage.setItem('galactic_intro_seen', 'true');
-                    } catch (e) {}
-                    updateMenuUI();
-                }, 2000);
-            }
+                document.getElementById('menu-overlay').classList.remove('hidden');
+                updateMenuUI();
+            }, 2000);
         })();
     </script>
 </body>
