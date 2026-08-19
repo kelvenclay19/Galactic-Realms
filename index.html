@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -578,6 +577,24 @@
     <div id="game-container">
         <canvas id="gameCanvas"></canvas>
 
+        <!-- SVG com filtros de daltonismo -->
+        <svg width="0" height="0" style="position:absolute">
+            <defs>
+                <filter id="protanopia-filter">
+                    <feColorMatrix type="matrix" values="0.567 0.433 0 0 0  0.558 0.442 0 0 0  0 0.242 0.758 0 0  0 0 0 1 0"/>
+                </filter>
+                <filter id="deuteranopia-filter">
+                    <feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/>
+                </filter>
+                <filter id="tritanopia-filter">
+                    <feColorMatrix type="matrix" values="0.95 0.05 0 0 0  0 0.433 0.567 0 0  0 0.475 0.525 0 0  0 0 0 1 0"/>
+                </filter>
+                <filter id="achromatopsia-filter">
+                    <feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0 0 0 1 0"/>
+                </filter>
+            </defs>
+        </svg>
+
         <div id="ui-overlay">
             <span id="level-message">Galactic Lobby</span>
             <div class="hud-controls">
@@ -671,6 +688,16 @@
                         <option value="on">Ativado</option>
                     </select>
                 </div>
+                <div class="setting-group">
+                    <label id="t-colorblind">Daltonismo</label>
+                    <select id="colorblind-select">
+                        <option value="none">Nenhum</option>
+                        <option value="protanopia">Protanopia</option>
+                        <option value="deuteranopia">Deuteranopia</option>
+                        <option value="tritanopia">Tritanopia</option>
+                        <option value="achromatopsia">Acromatopsia</option>
+                    </select>
+                </div>
                 <div style="display:flex;gap:10px;margin-top:20px;">
                     <button class="menu-btn" style="flex:1;margin:0;padding:15px;" id="close-settings-btn"><span id="t-back">Voltar</span></button>
                     <button class="menu-btn" style="flex:1;margin:0;padding:15px;background:rgba(200,50,50,0.4);border-color:#ff5555;" id="exit-game-btn"><span id="t-exit">Sair p/ Lobby</span></button>
@@ -716,6 +743,12 @@
                 accessibility: 'Modo de Acessibilidade Visual',
                 accessibilityOn: 'Ativado',
                 accessibilityOff: 'Desativado',
+                colorblind: 'Daltonismo',
+                colorblindNone: 'Nenhum',
+                colorblindProtan: 'Protanopia',
+                colorblindDeutan: 'Deuteranopia',
+                colorblindTritan: 'Tritanopia',
+                colorblindAchroma: 'Acromatopsia',
                 dashReady: 'DASH PRONTO',
                 djReady: 'PULO DUPLO'
             },
@@ -741,6 +774,12 @@
                 accessibility: 'Modo de Acessibilidade Visual',
                 accessibilityOn: 'Ativado',
                 accessibilityOff: 'Desativado',
+                colorblind: 'Daltonismo',
+                colorblindNone: 'Nenhum',
+                colorblindProtan: 'Protanopia',
+                colorblindDeutan: 'Deuteranopia',
+                colorblindTritan: 'Tritanopia',
+                colorblindAchroma: 'Acromatopsia',
                 dashReady: 'DASH PRONTO',
                 djReady: 'SALTO DUPLO'
             },
@@ -766,6 +805,12 @@
                 accessibility: 'Modo de Accesibilidad Visual',
                 accessibilityOn: 'Activado',
                 accessibilityOff: 'Desactivado',
+                colorblind: 'Daltonismo',
+                colorblindNone: 'Ninguno',
+                colorblindProtan: 'Protanopia',
+                colorblindDeutan: 'Deuteranopia',
+                colorblindTritan: 'Tritanopia',
+                colorblindAchroma: 'Acromatopsia',
                 dashReady: 'DASH LISTO',
                 djReady: 'DOBLE SALTO'
             },
@@ -791,6 +836,12 @@
                 accessibility: 'Visual Accessibility Mode',
                 accessibilityOn: 'Enabled',
                 accessibilityOff: 'Disabled',
+                colorblind: 'Colorblind Mode',
+                colorblindNone: 'None',
+                colorblindProtan: 'Protanopia',
+                colorblindDeutan: 'Deuteranopia',
+                colorblindTritan: 'Tritanopia',
+                colorblindAchroma: 'Achromatopsia',
                 dashReady: 'DASH READY',
                 djReady: 'DOUBLE JUMP'
             }
@@ -804,6 +855,7 @@
         let appState = 'MENU';
         let userFovMultiplier = 1.0;
         let accessibilityMode = false;
+        let colorblindMode = 'none';
 
         // ============================================================================
         // CANVAS E CONTEXTO
@@ -822,6 +874,26 @@
             canvas.height = canvasHeight;
         }
         window.addEventListener('resize', resizeCanvas);
+
+        // Função para aplicar filtro de daltonismo ao canvas
+        function applyColorblindFilter() {
+            switch (colorblindMode) {
+                case 'protanopia':
+                    canvas.style.filter = 'url(#protanopia-filter)';
+                    break;
+                case 'deuteranopia':
+                    canvas.style.filter = 'url(#deuteranopia-filter)';
+                    break;
+                case 'tritanopia':
+                    canvas.style.filter = 'url(#tritanopia-filter)';
+                    break;
+                case 'achromatopsia':
+                    canvas.style.filter = 'url(#achromatopsia-filter)';
+                    break;
+                default:
+                    canvas.style.filter = 'none';
+            }
+        }
 
         // ============================================================================
         // INPUT GLOBAL
@@ -2307,6 +2379,13 @@
             document.getElementById('t-accessibility').innerText = getText('accessibility');
             document.getElementById('accessibility-select').options[0].innerText = getText('accessibilityOff');
             document.getElementById('accessibility-select').options[1].innerText = getText('accessibilityOn');
+            document.getElementById('t-colorblind').innerText = getText('colorblind');
+            const cbSelect = document.getElementById('colorblind-select');
+            cbSelect.options[0].innerText = getText('colorblindNone');
+            cbSelect.options[1].innerText = getText('colorblindProtan');
+            cbSelect.options[2].innerText = getText('colorblindDeutan');
+            cbSelect.options[3].innerText = getText('colorblindTritan');
+            cbSelect.options[4].innerText = getText('colorblindAchroma');
         }
 
         function enterMakerMode() {
@@ -2476,6 +2555,12 @@
             }
         });
 
+        document.getElementById('colorblind-select').addEventListener('change', (e) => {
+            colorblindMode = e.target.value;
+            try { localStorage.setItem('galactic_colorblind', colorblindMode); } catch (e) {}
+            applyColorblindFilter();
+        });
+
         document.querySelectorAll('#maker-palette .tool-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('#maker-palette .tool-btn').forEach(b => b.classList.remove(
@@ -2507,7 +2592,13 @@
                 accessibilityMode = true;
                 document.getElementById('accessibility-select').value = 'on';
             }
+            const savedColorblind = localStorage.getItem('galactic_colorblind');
+            if (savedColorblind) {
+                colorblindMode = savedColorblind;
+                document.getElementById('colorblind-select').value = savedColorblind;
+            }
         } catch (e) {}
+        applyColorblindFilter();
         Realms.init();
         Maker.initGrid();
         updateMenuUI();
@@ -2516,4 +2607,3 @@
     </script>
 </body>
 </html>
-
